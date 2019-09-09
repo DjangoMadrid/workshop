@@ -1,0 +1,25 @@
+site_name: Taller de Introducción a Django
+site_url: https://djangomadrid.github.io/workshop
+repo_name: 'DjangoMadrid/workshop'
+repo_url: 'https://github.com/DjangoMadrid/workshop/'
+theme:
+  name: 'material'
+  language: 'es'
+  custom_dir: 'theme'
+nav: []
+google_analytics:
+  - 'UA-19120546-16'
+  - 'auto'
+extra:
+  search:
+    language: 'es'
+  social:
+    - type: 'github'
+      link: 'https://github.com/DjangoMadrid'
+    - type: 'twitter'
+      link: 'https://twitter.com/MadridDjangoUG'
+markdown_extensions:
+  - pymdownx.superfences
+  - codehilite
+  - toc:
+      permalink: true

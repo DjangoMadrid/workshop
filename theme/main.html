@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block styles %}
+<style>
+  .md-nav__title {
+    padding: 0 0.8rem !important;
+    height: auto !important;
+  }
+  .md-nav__title:before {
+    content: none !important;
+  }
+</style>
+{{ super() }}
+{% endblock %}
+{% block site_nav %}
+<div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+  <div class="md-sidebar__scrollwrap">
+    <div class="md-sidebar__inner">
+      <nav class="md-nav md-nav--primary" data-md-level="0">
+        {% if config.repo_url %}
+          <div class="md-nav__source">
+            {% include "partials/source.html" %}
+          </div>
+        {% endif %}
+        <ul class="md-nav__list" data-md-scrollfix>
+          {% include "partials/toc.html" %}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+{% endblock %}
