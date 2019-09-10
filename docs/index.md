@@ -382,7 +382,7 @@ Vamos a cambiar la vista `index` para que lea los registros de la base de datos.
 ``` python hl_lines="3 9"
 from django.shortcuts import render
 
-from notes.models import Notes
+from notes.models import Note
 
 
 def index(request):
