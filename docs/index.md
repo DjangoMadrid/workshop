@@ -210,7 +210,7 @@ urlpatterns = [
 ]
 ```
 
-Hemos mapeado la vista a la ruta raíz `''`, de forma que si ahora refrescamos la página [127.0.0.1:8000](http://127.0.0.1:8000), veremos el resultado. Si lo hubiésemos mapeado tal que `path('notes', views.index)`, la URL sería `127.0.0.1:8000/notas`.
+Hemos mapeado la vista a la ruta raíz `''`, de forma que si ahora refrescamos la página [127.0.0.1:8000](http://127.0.0.1:8000), veremos el resultado. Si lo hubiésemos mapeado tal que `path('notes', views.index)`, la URL sería `127.0.0.1:8000/notes`.
 
 Fíjate que el servidor de desarrollo ha detectado las modificaciones y se ha reiniciado automáticamente, aplicando los cambios sin necesidad de apagarlo y volverlo a encender manualmente.
 
