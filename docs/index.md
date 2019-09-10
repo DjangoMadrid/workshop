@@ -101,7 +101,7 @@ El comando creará un modulo con los siguientes archivos:
 - `views.py`: Definición de las **vistas**.
 
 
-Para acabar, vamos a _instalar_ la aplicación en el proyecto. Ésto nos permitirá integrarla más adelante con muchas de las funcionalidades de Django, como el ORM o el motor de plantillas ([_templates_](https://docs.djangoproject.com/es/stable/ref/templates/language/)). Abre `mysite/settings.py` con tu [editor de código favorito](https://tutorial.djangogirls.org/es/code_editor/) y añade `notes` (el nombre de la aplicación) a la lista de `INSTALLED_APPS`.
+Para acabar, vamos a _instalar_ la aplicación en el proyecto. Esto nos permitirá integrarla más adelante con muchas de las funcionalidades de Django, como el ORM o el motor de plantillas ([_templates_](https://docs.djangoproject.com/es/stable/ref/templates/language/)). Abre `mysite/settings.py` con tu [editor de código favorito](https://tutorial.djangogirls.org/es/code_editor/) y añade `notes` (el nombre de la aplicación) a la lista de `INSTALLED_APPS`.
 
 
 ``` python hl_lines="8"
@@ -125,7 +125,7 @@ def hello_world(request: HttpRequest):
   return HttpResponse('Hello World!')
 ```
 
-Ésta vista devolvería una respuesta en [texto plano](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types#textplain). Pero nosotros vamos a definir una vista que devuelva [texto HTML](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types#texthtml).
+Esta vista devolvería una respuesta en [texto plano](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types#textplain). Pero nosotros vamos a definir una vista que devuelva [texto HTML](https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types#texthtml).
 
 Abre `notes/views.py` y define la siguiente vista:
 
@@ -240,7 +240,7 @@ class Note(models.Model):
 
 En Django, los modelos deben extender `models.Model`. Las clases `CharField` y `TextField` son algunos de los campos que podemos definir en nuestro modelo, pero [hay muchos más](https://docs.djangoproject.com/es/stable/ref/models/fields).
 
-Fíjate que hemos sobreescrito el método mágico de Python [`__str__`](https://docs.python.org/3/reference/datamodel.html?#object.__str__). Django utilizará éste método en [diversos sitios](https://docs.djangoproject.com/es/stable/ref/models/instances/#str), y además facilitará la depuración de la aplicación. Si no lo sobreescribimos, el modelo por defecto devolverá el `id` del registro.
+Fíjate que hemos sobreescrito el método mágico de Python [`__str__`](https://docs.python.org/3/reference/datamodel.html?#object.__str__). Django utilizará este método en [diversos sitios](https://docs.djangoproject.com/es/stable/ref/models/instances/#str), y además facilitará la depuración de la aplicación. Si no lo sobreescribimos, el modelo por defecto devolverá el `id` del registro.
 
 ### Migraciones
 
@@ -276,31 +276,32 @@ python manage.py migrate notes
 
 Este comando aplicará las migraciones pendientes de la aplicación `notes`. Django lleva un registro de las migraciones aplicadas en otra tabla creada por defecto.
 
-Podemos abrir una consola en la base de datos del proyecto con el comando `dbshell`, y listar las tablas creadas con [`.tables`](https://sqlite.org/cli.html#special_commands_to_sqlite3_dot_commands_):
+!!! info "Opcional"
+    Si tenemos [`sqlite3` instalado](https://www.sqlite.org/download.html), podemos abrir una consola en la base de datos del proyecto con el comando `dbshell`, y listar las tablas creadas con [`.tables`](https://sqlite.org/cli.html#special_commands_to_sqlite3_dot_commands_):
 
-``` bash tab="Linux/UNIX"
-$ python3 manage.py dbshell
-SQLite version 3.24.0 2018-06-04 14:10:15
-Enter ".help" for usage hints.
-sqlite> .tables
-django_migrations  notes_note
-```
+    ``` bash tab="Linux/UNIX"
+    $ python3 manage.py dbshell
+    SQLite version 3.24.0 2018-06-04 14:10:15
+    Enter ".help" for usage hints.
+    sqlite> .tables
+    django_migrations  notes_note
+    ```
 
-``` bash tab="Mac OS X"
-$ python3 manage.py dbshell
-SQLite version 3.24.0 2018-06-04 14:10:15
-Enter ".help" for usage hints.
-sqlite> .tables
-django_migrations  notes_note
-```
+    ``` bash tab="Mac OS X"
+    $ python3 manage.py dbshell
+    SQLite version 3.24.0 2018-06-04 14:10:15
+    Enter ".help" for usage hints.
+    sqlite> .tables
+    django_migrations  notes_note
+    ```
 
-``` PowerShell tab="Windows"
-$ python manage.py dbshell
-SQLite version 3.24.0 2018-06-04 14:10:15
-Enter ".help" for usage hints.
-sqlite> .tables
-django_migrations  notes_note
-```
+    ``` PowerShell tab="Windows"
+    C:\Users\Django\mysite> python manage.py dbshell
+    SQLite version 3.24.0 2018-06-04 14:10:15
+    Enter ".help" for usage hints.
+    sqlite> .tables
+    django_migrations  notes_note
+    ```
 
 Las tablas creadas por defecto en Django están formadas por el nombre de la aplicación, un guión bajo (`_`), y el nombre del modelo (en minúscula y sin espacios). Por eso la tabla se ha creado con el nombre `notes_note` (recuerda que la aplicación se llama `notes`, y el modelo `note`).
 
@@ -336,7 +337,7 @@ note.save()
 
 El registro no se insertará en la base de datos hasta que llamemos a `save`, que al ser un registro nuevo ejecutará un [`INSERT`](https://www.w3schools.com/sql/sql_insert.asp).
 
-Podemos actualizar el registro cambiando el valor de sus atributos en la instancia y llamando de nuevo a `save`, el cual ésta vez realizará un [`UPDATE`](https://www.w3schools.com/sql/sql_update.asp):
+Podemos actualizar el registro cambiando el valor de sus atributos en la instancia y llamando de nuevo a `save`, el cual esta vez realizará un [`UPDATE`](https://www.w3schools.com/sql/sql_update.asp):
 
 ``` python
 note.title = "Pulp Fiction"
@@ -398,7 +399,7 @@ Si ahora refrescamos la página [127.0.0.1:8000](http://127.0.0.1:8000), veremos
 
 ## Administración
 
-Django ofrece por defecto un panel de [administración](https://docs.djangoproject.com/es/stable/intro/tutorial02/#introducing-the-django-admin) web que nos permitirá gestionar los registros de la base de datos fácilmente. Éste, a su vez, depende de otras aplicaciones que instala Django por defecto para gestionar usuarios y sesiones. Para empezar a usar la administración, primero debemos aplicar las migraciones de estos modelos. Ejecutemos el comando `migrate`:
+Django ofrece por defecto un panel de [administración](https://docs.djangoproject.com/es/stable/intro/tutorial02/#introducing-the-django-admin) web que nos permitirá gestionar los registros de la base de datos fácilmente. Este, a su vez, depende de otras aplicaciones que instala Django por defecto para gestionar usuarios y sesiones. Para empezar a usar la administración, primero debemos aplicar las migraciones de estos modelos. Ejecutemos el comando `migrate`:
 
 ``` bash tab="Linux/UNIX"
 python3 manage.py migrate
@@ -499,7 +500,7 @@ python3 manage.py test
 python manage.py test
 ```
 
-Veremos una salida similar a ésta:
+Veremos una salida similar a esta:
 
 ```
 Creating test database for alias 'default'...
@@ -512,12 +513,12 @@ OK
 Destroying test database for alias 'default'...
 ```
 
-Fíjate que ha creado una base de datos de prueba al principio de la ejecución, y la ha destruido al terminar. Ésta base de datos es creada exclusivamente para correr los tests.
+Fíjate que ha creado una base de datos de prueba al principio de la ejecución, y la ha destruido al terminar. Esta base de datos es creada exclusivamente para correr los tests.
 
 
 ## Siguientes pasos
 
-A continuación se dan algunas sugerencias para continuar aprendiendo con éste proyecto:
+A continuación se dan algunas sugerencias para continuar aprendiendo con este proyecto:
 
 - Añadir una [plantilla base](https://tutorial.djangogirls.org/es/template_extending/).
 - Añadir una [clave foránea](https://docs.djangoproject.com/es/stable/ref/models/fields/#foreignkey) en el modelo `Note` [al modelo `User`](https://docs.djangoproject.com/es/stable/topics/auth/customizing/#referencing-the-user-model).

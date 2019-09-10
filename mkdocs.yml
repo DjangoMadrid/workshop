@@ -19,6 +19,7 @@ extra:
     - type: 'twitter'
       link: 'https://twitter.com/MadridDjangoUG'
 markdown_extensions:
+  - admonition
   - pymdownx.superfences
   - codehilite
   - toc:
