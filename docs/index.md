@@ -11,7 +11,7 @@ Requiere tener [Python 3 instalado](https://www.python.org/downloads/), y un con
 
 ### Django
 
-Primero, **instalaremos el paquete `Django`** a través de `pip`, el instalador de paquetes de Python (viene por defecto incluido en su instalación, si no es así ):
+Primero, **instalaremos el paquete `Django`** a través de `pip`, el instalador de paquetes de Python (viene por defecto incluido en su instalación):
 
 ``` bash tab="Linux/UNIX"
 pip3 install Django
