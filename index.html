@@ -530,7 +530,7 @@ python3 manage.py runserver
 <li><code>tests.py</code>: Definición de los tests.</li>
 <li><code>views.py</code>: Definición de las <strong>vistas</strong>.</li>
 </ul>
-<p>Para acabar, vamos a <em>instalar</em> la aplicación en el proyecto. Ésto nos permitirá integrarla más adelante con muchas de las funcionalidades de Django, como el ORM o el motor de plantillas (<a href="https://docs.djangoproject.com/es/stable/ref/templates/language/"><em>templates</em></a>). Abre <code>mysite/settings.py</code> con tu <a href="https://tutorial.djangogirls.org/es/code_editor/">editor de código favorito</a> y añade <code>notes</code> (el nombre de la aplicación) a la lista de <code>INSTALLED_APPS</code>.</p>
+<p>Para acabar, vamos a <em>instalar</em> la aplicación en el proyecto. Esto nos permitirá integrarla más adelante con muchas de las funcionalidades de Django, como el ORM o el motor de plantillas (<a href="https://docs.djangoproject.com/es/stable/ref/templates/language/"><em>templates</em></a>). Abre <code>mysite/settings.py</code> con tu <a href="https://tutorial.djangogirls.org/es/code_editor/">editor de código favorito</a> y añade <code>notes</code> (el nombre de la aplicación) a la lista de <code>INSTALLED_APPS</code>.</p>
 <div class="codehilite"><pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
     <span class="s1">&#39;django.contrib.auth&#39;</span><span class="p">,</span>
@@ -548,7 +548,7 @@ python3 manage.py runserver
   <span class="k">return</span> <span class="n">HttpResponse</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">)</span>
 </pre></div>
 
-<p>Ésta vista devolvería una respuesta en <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types#textplain">texto plano</a>. Pero nosotros vamos a definir una vista que devuelva <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types#texthtml">texto HTML</a>.</p>
+<p>Esta vista devolvería una respuesta en <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types#textplain">texto plano</a>. Pero nosotros vamos a definir una vista que devuelva <a href="https://developer.mozilla.org/es/docs/Web/HTTP/Basics_of_HTTP/MIME_types#texthtml">texto HTML</a>.</p>
 <p>Abre <code>notes/views.py</code> y define la siguiente vista:</p>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
 
@@ -638,7 +638,7 @@ python3 manage.py runserver
 </span></pre></div>
 
 <p>En Django, los modelos deben extender <code>models.Model</code>. Las clases <code>CharField</code> y <code>TextField</code> son algunos de los campos que podemos definir en nuestro modelo, pero <a href="https://docs.djangoproject.com/es/stable/ref/models/fields">hay muchos más</a>.</p>
-<p>Fíjate que hemos sobreescrito el método mágico de Python <a href="https://docs.python.org/3/reference/datamodel.html?#object.__str__"><code>__str__</code></a>. Django utilizará éste método en <a href="https://docs.djangoproject.com/es/stable/ref/models/instances/#str">diversos sitios</a>, y además facilitará la depuración de la aplicación. Si no lo sobreescribimos, el modelo por defecto devolverá el <code>id</code> del registro.</p>
+<p>Fíjate que hemos sobreescrito el método mágico de Python <a href="https://docs.python.org/3/reference/datamodel.html?#object.__str__"><code>__str__</code></a>. Django utilizará este método en <a href="https://docs.djangoproject.com/es/stable/ref/models/instances/#str">diversos sitios</a>, y además facilitará la depuración de la aplicación. Si no lo sobreescribimos, el modelo por defecto devolverá el <code>id</code> del registro.</p>
 <h3 id="migraciones">Migraciones<a class="headerlink" href="#migraciones" title="Permanent link">&para;</a></h3>
 <p>Tenemos el modelo pero, antes de ponernos a crear registros, tenemos que crear la tabla donde se van a guardar. Para los cambios de esquema usaremos <a href="https://docs.djangoproject.com/es/stable/topics/migrations/"><em>migraciones</em></a>. Django tiene un comando para crear migraciones, detectando automáticamente los cambios realizados en los modelos. Ejecuta el siguiente comando, que buscará estos cambios en la aplicación <code>notes</code>:</p>
 <div class="superfences-tabs">
@@ -672,7 +672,9 @@ python3 manage.py runserver
 </pre></div></div>
 </div>
 <p>Este comando aplicará las migraciones pendientes de la aplicación <code>notes</code>. Django lleva un registro de las migraciones aplicadas en otra tabla creada por defecto.</p>
-<p>(Opcional) Podemos abrir una consola en la base de datos del proyecto con el comando <code>dbshell</code>, y listar las tablas creadas con <a href="https://sqlite.org/cli.html#special_commands_to_sqlite3_dot_commands_"><code>.tables</code></a>:</p>
+<div class="admonition info">
+<p class="admonition-title">Opcional</p>
+<p>Si tenemos <a href="https://www.sqlite.org/download.html"><code>sqlite3</code> instalado</a>, podemos abrir una consola en la base de datos del proyecto con el comando <code>dbshell</code>, y listar las tablas creadas con <a href="https://sqlite.org/cli.html#special_commands_to_sqlite3_dot_commands_"><code>.tables</code></a>:</p>
 <div class="superfences-tabs">
 <input name="__tabs_7" type="radio" id="__tab_7_0" checked="checked" />
 <label for="__tab_7_0">Linux/UNIX</label>
@@ -692,12 +694,13 @@ django_migrations  notes_note
 </pre></div></div>
 <input name="__tabs_7" type="radio" id="__tab_7_2" />
 <label for="__tab_7_2">Windows</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="p">$</span> <span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">dbshell</span>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">C</span><span class="err">:</span><span class="p">\</span><span class="n">Users</span><span class="p">\</span><span class="n">Django</span><span class="p">\</span><span class="n">mysite</span><span class="p">&gt;</span> <span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">dbshell</span>
 <span class="n">SQLite</span> <span class="n">version</span> <span class="n">3</span><span class="p">.</span><span class="n">24</span><span class="p">.</span><span class="n">0</span> <span class="n">2018</span><span class="p">-</span><span class="n">06</span><span class="p">-</span><span class="n">04</span> <span class="n">14</span><span class="err">:</span><span class="n">10</span><span class="err">:</span><span class="n">15</span>
 <span class="n">Enter</span> <span class="s2">&quot;.help&quot;</span> <span class="k">for</span> <span class="n">usage</span> <span class="n">hints</span><span class="p">.</span>
 <span class="n">sqlite</span><span class="p">&gt;</span> <span class="p">.</span><span class="n">tables</span>
 <span class="n">django_migrations</span>  <span class="n">notes_note</span>
 </pre></div></div>
+</div>
 </div>
 <p>Las tablas creadas por defecto en Django están formadas por el nombre de la aplicación, un guión bajo (<code>_</code>), y el nombre del modelo (en minúscula y sin espacios). Por eso la tabla se ha creado con el nombre <code>notes_note</code> (recuerda que la aplicación se llama <code>notes</code>, y el modelo <code>note</code>).</p>
 <h3 id="crear-actualizar-y-borrar">Crear, actualizar y borrar<a class="headerlink" href="#crear-actualizar-y-borrar" title="Permanent link">&para;</a></h3>
@@ -726,7 +729,7 @@ django_migrations  notes_note
 </pre></div>
 
 <p>El registro no se insertará en la base de datos hasta que llamemos a <code>save</code>, que al ser un registro nuevo ejecutará un <a href="https://www.w3schools.com/sql/sql_insert.asp"><code>INSERT</code></a>.</p>
-<p>Podemos actualizar el registro cambiando el valor de sus atributos en la instancia y llamando de nuevo a <code>save</code>, el cual ésta vez realizará un <a href="https://www.w3schools.com/sql/sql_update.asp"><code>UPDATE</code></a>:</p>
+<p>Podemos actualizar el registro cambiando el valor de sus atributos en la instancia y llamando de nuevo a <code>save</code>, el cual esta vez realizará un <a href="https://www.w3schools.com/sql/sql_update.asp"><code>UPDATE</code></a>:</p>
 <div class="codehilite"><pre><span></span><span class="n">note</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Pulp Fiction&quot;</span>
 <span class="n">note</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </pre></div>
@@ -769,7 +772,7 @@ django_migrations  notes_note
 
 <p>Si ahora refrescamos la página <a href="http://127.0.0.1:8000">127.0.0.1:8000</a>, veremos que muestra los registros que hemos creado ("El Guateque" e "Hyperion").</p>
 <h2 id="administracion">Administración<a class="headerlink" href="#administracion" title="Permanent link">&para;</a></h2>
-<p>Django ofrece por defecto un panel de <a href="https://docs.djangoproject.com/es/stable/intro/tutorial02/#introducing-the-django-admin">administración</a> web que nos permitirá gestionar los registros de la base de datos fácilmente. Éste, a su vez, depende de otras aplicaciones que instala Django por defecto para gestionar usuarios y sesiones. Para empezar a usar la administración, primero debemos aplicar las migraciones de estos modelos. Ejecutemos el comando <code>migrate</code>:</p>
+<p>Django ofrece por defecto un panel de <a href="https://docs.djangoproject.com/es/stable/intro/tutorial02/#introducing-the-django-admin">administración</a> web que nos permitirá gestionar los registros de la base de datos fácilmente. Este, a su vez, depende de otras aplicaciones que instala Django por defecto para gestionar usuarios y sesiones. Para empezar a usar la administración, primero debemos aplicar las migraciones de estos modelos. Ejecutemos el comando <code>migrate</code>:</p>
 <div class="superfences-tabs">
 <input name="__tabs_9" type="radio" id="__tab_9_0" checked="checked" />
 <label for="__tab_9_0">Linux/UNIX</label>
@@ -855,7 +858,7 @@ django_migrations  notes_note
 <div class="superfences-content"><div class="codehilite"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="p">.</span><span class="n">py</span> <span class="n">test</span>
 </pre></div></div>
 </div>
-<p>Veremos una salida similar a ésta:</p>
+<p>Veremos una salida similar a esta:</p>
 <div class="codehilite"><pre><span></span><span class="nv">Creating</span> <span class="nv">test</span> <span class="nv">database</span> <span class="k">for</span> <span class="nv">alias</span> <span class="s1">&#39;</span><span class="s">default</span><span class="s1">&#39;</span>...
 <span class="nv">System</span> <span class="nv">check</span> <span class="nv">identified</span> <span class="nv">no</span> <span class="nv">issues</span> <span class="ss">(</span><span class="mi">0</span> <span class="nv">silenced</span><span class="ss">)</span>.
 ..
@@ -866,9 +869,9 @@ django_migrations  notes_note
 <span class="nv">Destroying</span> <span class="nv">test</span> <span class="nv">database</span> <span class="k">for</span> <span class="nv">alias</span> <span class="s1">&#39;</span><span class="s">default</span><span class="s1">&#39;</span>...
 </pre></div>
 
-<p>Fíjate que ha creado una base de datos de prueba al principio de la ejecución, y la ha destruido al terminar. Ésta base de datos es creada exclusivamente para correr los tests.</p>
+<p>Fíjate que ha creado una base de datos de prueba al principio de la ejecución, y la ha destruido al terminar. Esta base de datos es creada exclusivamente para correr los tests.</p>
 <h2 id="siguientes-pasos">Siguientes pasos<a class="headerlink" href="#siguientes-pasos" title="Permanent link">&para;</a></h2>
-<p>A continuación se dan algunas sugerencias para continuar aprendiendo con éste proyecto:</p>
+<p>A continuación se dan algunas sugerencias para continuar aprendiendo con este proyecto:</p>
 <ul>
 <li>Añadir una <a href="https://tutorial.djangogirls.org/es/template_extending/">plantilla base</a>.</li>
 <li>Añadir una <a href="https://docs.djangoproject.com/es/stable/ref/models/fields/#foreignkey">clave foránea</a> en el modelo <code>Note</code> <a href="https://docs.djangoproject.com/es/stable/topics/auth/customizing/#referencing-the-user-model">al modelo <code>User</code></a>.</li>
