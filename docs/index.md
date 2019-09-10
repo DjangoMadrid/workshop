@@ -210,7 +210,7 @@ urlpatterns = [
 ]
 ```
 
-Hemos mapeado la vista a la ruta raíz `''`, de forma que si ahora refrescamos la página [127.0.0.1:8000](http://127.0.0.1:8000), veremos el resultado. Si lo hubiésemos mapeado tal que `path('notes', views.index)`, la URL sería `127.0.0.1:8000/notes`.
+Hemos mapeado la vista a la ruta raíz `''`, de forma que si ahora refrescamos la página [127.0.0.1:8000](http://127.0.0.1:8000), veremos el resultado. Si lo hubiésemos mapeado tal que `path('notes', views.index)`, la URL sería `127.0.0.1:8000/notas`.
 
 Fíjate que el servidor de desarrollo ha detectado las modificaciones y se ha reiniciado automáticamente, aplicando los cambios sin necesidad de apagarlo y volverlo a encender manualmente.
 
@@ -382,13 +382,13 @@ Vamos a cambiar la vista `index` para que lea los registros de la base de datos.
 ``` python hl_lines="3 9"
 from django.shortcuts import render
 
-from notes.models import Notes
+from notes.models import Note
 
 
 def index(request):
     template = 'index.html'
     context = {
-        'note_list': Notes.objects.all()
+        'note_list': Note.objects.all()
     }
     response = render(request, template, context)
     return response
