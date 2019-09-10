@@ -76,7 +76,7 @@ Para crear una vista, primero necesitamos una **aplicación** en la que definirl
 
 Las aplicaciones son un módulo de Python que reunirá un conjunto de funcionalidades (lógica, modelos, etc). Además, podremos [reutilizarlas en otros proyectos](https://djangopackages.org/categories/apps/).
 
-Vamos a crear una aplicación de ejemplo para gestionar notas. Usando `manage.py startapp`, crearemos una aplicación llamada `notes`:
+Vamos a crear una aplicación de ejemplo para gestionar notas. Abre un nuevo terminal para dejar el servidor de desarrollo corriendo y poder seguir ejecutando comandos. Ahora ejecutamos `manage.py startapp` para crear una aplicación que llamaremos `notes`:
 
 
 ``` bash tab="Linux/UNIX"
