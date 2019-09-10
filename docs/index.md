@@ -222,7 +222,7 @@ En Django, los **modelos** son la única fuente de información de tus datos. Co
 - Gestionamos los cambios del esquema ([_migraciones_](https://en.wikipedia.org/wiki/Schema_migration)).
 - Consultamos y manipulamos los registros.
 
-Los modelos implementan el patrón [ORM](https://es.wikipedia.org/wiki/Mapeo_objeto-relacional). Django trabaja con [bases de datos relaccionales](https://es.wikipedia.org/wiki/Base_de_datos_relacional). Recuerda que por defecto utiliza [SQLite 3](https://www.sqlite.org). Simplificando, podemos pensar que las bases de datos relaccionales almacenan la información en tablas (_esquemas_), donde las columnas son las propiedades y las filas cada uno de los registros.
+Los modelos implementan el patrón [ORM](https://es.wikipedia.org/wiki/Mapeo_objeto-relacional). Django trabaja con [bases de datos relacionales](https://es.wikipedia.org/wiki/Base_de_datos_relacional). Recuerda que por defecto utiliza [SQLite 3](https://www.sqlite.org). Simplificando, podemos pensar que las bases de datos relacionales almacenan la información en tablas (_esquemas_), donde las columnas son las propiedades y las filas cada uno de los registros.
 
 En nuestro proyecto en concreto, podríamos almacenar las notas en una tabla con las columnas "título" y "contenido" (`title` y `content`), donde las filas serían cada una de nuestras notas. Vamos a definir un modelo para ello. Abre el archivo `notes/models.py` y añade las siguientes líneas:
 
