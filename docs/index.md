@@ -49,7 +49,7 @@ cd mysite
 python manage.py runserver
 ```
 
-Con ésto habremos creado un un nuevo proyecto Django llamado `mysite`, y el servidor de desarrollo estará corriendo en el puerto por defecto (8000).
+Con esto habremos creado un un nuevo proyecto Django llamado `mysite`, y el servidor de desarrollo estará corriendo en el puerto por defecto (8000).
 
 En nuestro navegador **abrimos [127.0.0.1:8000](http://127.0.0.1:8000)** y confirmamos que estamos viendo la página inicial del proyecto, que tendrá el siguiente mensaje:
 
